@@ -1,4 +1,7 @@
-import React, {useState, useEffect} from 'react'  
+import React, {useState, useEffect} from 'react' 
+import { recibirtodopokemon, recibirpokemon } from './Servicios/Pokemon' 
+import Card from './components/Card'
+import Nbar from './components/Card/Nbar/Nbar' 
 
 function AplicativoApi (){
     const [Datopokemon,setDatopokemon] = React.useState([])
@@ -35,7 +38,7 @@ function AplicativoApi (){
         setanteriorUrl(respuesta.previous)
         setcarga(false)
         }
-        
+
     const cargaPokemon = async (data) => {
         let DatosPokemon = await Promise.all(data.map(async pokemon => {
          let Registropokemon = await recibirpokemon(pokemon.url)
