@@ -17,6 +17,58 @@ function AplicativoApi (){
        }
        ObtenerDatos()
     }, [])
+    const siguiente = async () => {
+        setcarga(true);
+        let respuesta = await recibirtodopokemon(siguienteUrl)
+        await cargaPokemon(respuesta.results)
+        setsiguienteUrl(respuesta.next)
+        setanteriorUrl(respuesta.previous)
+        setcarga(false)
+      }
+      
+      const Anterior = async () => {
+        if (!anteriorUrl) return anteriorUrl;
+        setcarga(true);
+        let respuesta = await recibirtodopokemon (anteriorUrl)
+        await cargaPokemon(respuesta.results)
+        setsiguienteUrl(respuesta.next)
+        setanteriorUrl(respuesta.previous)
+        setcarga(false)
+        }
+        
+    const cargaPokemon = async (data) => {
+        let DatosPokemon = await Promise.all(data.map(async pokemon => {
+         let Registropokemon = await recibirpokemon(pokemon.url)
+          return Registropokemon
+        }))
+         setDatopokemon(DatosPokemon)
+       }
+    return (
+        <>
+          <Nbar/>
+          <div > 
+              {carga ? <h1 style={{ textAlign: 'center' }}>Cargando...</h1> : (
+            <>
+              <div className="boton">
+                    <button onClick={Anterior}>Anterior</button>
+                    <button onClick={siguiente}>Siguiente</button>
+                  </div>
+              <div className="contenedor-cuadricula">
+              {Datopokemon.map((pokemonD, i) => {
+                      return <Card key={i} pokemon={pokemonD} /> 
+                    })}
+      
+                </div>
+                <div className="boton">
+                <button onClick={Anterior}>Anterior</button>
+                <button onClick={siguiente}>Siguiente</button>
+              </div>
+            </>
+            )}
+           </div>
+        </>
+      )
+      
 }
 
 export default AplicativoApi;
