@@ -20,8 +20,9 @@ p {
     padding: 5px 10px;
     margin: 10px 10px 10px 0;
     border-radius: 5px;
-    background: cyan;
+    background: rgb(24, 79, 217);
     color: #fff;
+    justify-content: center;
 }
 
 .Card_name {
@@ -32,12 +33,18 @@ p {
 
 .Card_info {
     margin-left: 10px;
+    justify-content: center;
+    text-align: center;
 }
 
 .Card_data {
     padding-bottom: 10px;
+    justify-content: center;
+    text-align:justify;
 }
 
 .Card_data .title {
     font-weight: 700;
+    justify-content: center;
+    text-align:justify;
 }
