@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react' 
+import React, {useEffect} from 'react' 
 import { recibirtodopokemon, recibirpokemon } from './servicios/Pokemon' 
 import Card from  './components/Card/Card'
 import Nbar from './components/Nbar/Nbar' 
