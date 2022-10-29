@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react' 
-import { recibirtodopokemon, recibirpokemon } from './Servicios/Pokemon' 
-import Card from './components/Card'
-import Nbar from './components/Card/Nbar/Nbar' 
+import { recibirtodopokemon, recibirpokemon } from './servicios/Pokemon' 
+import Card from  './components/Card/Card'
+import Nbar from './components/Nbar/Nbar' 
 
 function AplicativoApi (){
     const [Datopokemon,setDatopokemon] = React.useState([])
